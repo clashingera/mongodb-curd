@@ -13,8 +13,8 @@ const TopicData = [
 export default function Home() {
   return (
   <>
-  <NewTopic/>
-  <Topic Topics={TopicData}/>
+
+  <Topic/>
   </>
   );
 }
