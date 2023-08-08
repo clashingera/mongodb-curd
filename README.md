@@ -27,7 +27,7 @@ The Next.js 'TOPIC' app is a web application for managing and organizing topics.
 3. Install dependencies: `npm install`
 
 ## Configuration
-1. Rename `.env.example.js` to `.env.js`.
+1. Rename `.env.example` to `.env`.
 2. Edit `.env.js` and set your MongoDB connection URL.
 
 ## Usage
