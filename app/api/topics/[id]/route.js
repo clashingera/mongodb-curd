@@ -27,7 +27,8 @@ export async function GET(request, {params}){
 
     const {id} = params;
     await connectMongoDB();
+    // console.log(id);
     const resp = await Topic.findOne({_id : id});
-    return NextResponse.json({resp});
+    return NextResponse.json({resp}, {status : 200});
 
 }

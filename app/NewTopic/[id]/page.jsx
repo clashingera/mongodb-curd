@@ -1,9 +1,33 @@
 
-import NewTopic from "@/app/componets/NewTopic";
+import EditForm from "@/app/componets/EditForm";
+// import { data } from "autoprefixer";
 
-const EditTopic = () => {
+const getTopic = async (topicId) => {
+    
+
+    // console.log(params);
+    // console.log(id);
+
+    const res = await fetch(`http://localhost:3000/api/topics/${topicId}`, {cache : "no-store"});
+
+    // const data = await res.json(); 
+
+    // const {text : topic} =  data;
+    // console.log(data);
+    return res.json();
+}
+
+const EditTopic = async ({params}) => {
+
+    const {id : topicId} = params;
+
+     const data = await getTopic(topicId);
+     const topic =  data.resp.text;
+    //  console.log(topic);
+    // console.log(data);
+
     return (
-        <NewTopic/>
+        <EditForm id={topicId} text={topic}/>
     );
 };
 export default EditTopic;

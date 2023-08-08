@@ -3,12 +3,13 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import TopicLoading from "./TopicLoading";
-// import { useSearchParams } from "next/navigation";
 
-const NewTopic = () => {
+const EditForm = ({id, text}) => {
 
   const [isSubmmiting, setIsSubmmiting] = useState(false);
+  const [newText, setNewText] = useState(text);
   // const searchParams = useSearchParams();
+//   console.log(text);
   const router = useRouter();
 
   // const search = searchParams.get('id');
@@ -19,23 +20,19 @@ const NewTopic = () => {
 
 
     setIsSubmmiting(true);
-
-    const data = {
-      text: e.target.topic?.value,
-    };
     // console.log(text);
     // Send the data to the server in JSON format.
-    const JSONdata = JSON.stringify(data);
+    const JSONdata = JSON.stringify({newText});
 
     // console.log(JSONdata);
 
     // API endpoint where we send form data.
-    const endpoint = "/api/topics";
+    const endpoint = `/api/topics/${id}`;
 
     // Form the request for sending data to the server.
     const options = {
       // The method is POST because we are sending data.
-      method: "POST",
+      method: "PUT",
       // Tell the server we're sending JSON.
       headers: {
         "Content-Type": "application/json",
@@ -67,17 +64,18 @@ const NewTopic = () => {
       className="flex justify-between items-center bg-slate-900 text-white rounded m-auto max-w-xl p-4 my-2"
     >
       <label className="text-white" htmlFor="topic">
-        Add Topic :{" "}
+        Add Topic :
       </label>
       <div>
         <input
-          // onChange={(e) => {setTopic(e.target.value)}}
+          onChange={(e) => {setNewText(e.target.value)}}
           type="text"
-          placeholder="Topic"
+          placeholder={newText}
           className="p-2 mx-3 rounded border-none outline-none text-slate-900
           font-semibold tracking-wide"
           name="topic"
           id="topic"
+          value={newText}
           required
         />
         {/* 
@@ -87,7 +85,7 @@ const NewTopic = () => {
 */}
         <button type="submit" className=" text-white bg-indigo-900 p-2 rounded hover:bg-indigo-700 transition ease-in-out "  disabled = {isSubmmiting}>
         {/* {isSubmmiting && <svg className="animate-spin h-5 w-5 mr-3 " viewBox="0 0 24 24"></svg>} */}
-        {isSubmmiting ? 'Processing...' : 'Add Topic'}
+        {isSubmmiting ? 'Processing...' : 'Update Topic'}
         </button>
       </div>
       {/* <button type="submit">Demo Button</button> */}
@@ -96,4 +94,4 @@ const NewTopic = () => {
     </div>
   );
 };
-export default NewTopic;
+export default EditForm;
