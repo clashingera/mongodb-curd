@@ -22,13 +22,13 @@ The Next.js 'TOPIC' app is a web application for managing and organizing topics.
 - List Topics: Display a list of all topics.
 
 ## Installation
-1. Clone the repository: `git clone <repository_url>`
-2. Navigate to the project directory: `cd next-topic-app`
+1. Clone the repository: ` git clone https://github.com/atharva-0123-cs/mongodb-curd.git`
+2. Navigate to the project directory: `cd mongodb-curd`
 3. Install dependencies: `npm install`
 
 ## Configuration
 1. Rename `.env.example` to `.env`.
-2. Edit `.env.js` and set your MongoDB connection URL.
+2. Edit `.env` and set your MongoDB connection URL.
 
 ## Usage
 1. Run the development server: `npm run dev`
