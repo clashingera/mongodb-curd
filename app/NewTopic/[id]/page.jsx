@@ -4,11 +4,12 @@ import EditForm from "@/app/componets/EditForm";
 
 const getTopic = async (topicId) => {
     
+    const app_url = process.env.APP_URL;
 
     // console.log(params);
     // console.log(id);
 
-    const res = await fetch(`http://localhost:3000/api/topics/${topicId}`, {cache : "no-store"});
+    const res = await fetch(`${app_url}/topics/${topicId}`, {cache : "no-store"});
 
     // const data = await res.json(); 
 

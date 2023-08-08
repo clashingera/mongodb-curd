@@ -4,8 +4,10 @@ import RemoveButton from "./RemoveButton";
 
 const getTopics = async () => {
 
+  const app_url = process.env.APP_URL;
+
   try{
-    const res = await fetch('http://localhost:3000/api/topics', {
+    const res = await fetch(`${app_url}/api/topics`, {
       cache : "no-store"
     });
 

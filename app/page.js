@@ -1,5 +1,4 @@
 
-import NewTopic from "./componets/NewTopic";
 import Topic from "./componets/Topic";
 
 

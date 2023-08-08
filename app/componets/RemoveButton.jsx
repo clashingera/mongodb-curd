@@ -23,7 +23,7 @@ const RemoveButton = ({ id }) => {
         const confirmed = confirm("Are you sure...");
 
         if(confirmed){
-            const res = await fetch(`http://localhost:3000/api/topics?id=${id}`, options);
+            const res = await fetch(`/api/topics?id=${id}`, options);
 
             if(res.ok){
                 router.refresh();
