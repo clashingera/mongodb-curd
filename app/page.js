@@ -1,5 +1,5 @@
 
-import Topic from "./componets/Topic";
+import Topic from "../componets/Topic";
 
 
 const TopicData = [
