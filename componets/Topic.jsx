@@ -2,6 +2,13 @@ import Link from "next/link";
 import {BiSolidEdit} from "react-icons/bi";
 import RemoveButton from "./RemoveButton";
 
+const TopicData = [
+  {text : "Learn React"},
+  {text : "Learn NextJs"},
+  {text : "TypeScript is good"},
+  {text : "C++ is for Game Dev"},
+]
+
 const getTopics = async () => {
 
   const app_url = process.env.APP_URL;
@@ -32,7 +39,23 @@ const Topic = async () => {
   return (
     <div className="m-auto max-w-2xl items-center ">
       <ul className="flex flex-col gap-2">
-        {Topics.map((topic) => {
+        {Topics && Topics.map((topic) => {
+          return (
+            <li key={topic._id} className="flex justify-between cursor-pointer bg-slate-900 hover:shadow-lg  text-white p-5 rounded-md">
+              <h3>{topic.text}</h3>
+              <div className="flex gap-1 text-xl ">
+                <button>
+                <Link href={`/NewTopic/${topic._id}`}>
+                <BiSolidEdit className="cursor-pointer hover:text-blue-500 "/>
+                </Link>
+                </button>
+                <RemoveButton id={topic._id}/>
+              </div> 
+            </li>
+          );
+        })}
+
+        {!Topics && TopicData.map((topic) => {
           return (
             <li key={topic._id} className="flex justify-between cursor-pointer bg-slate-900 hover:shadow-lg  text-white p-5 rounded-md">
               <h3>{topic.text}</h3>
