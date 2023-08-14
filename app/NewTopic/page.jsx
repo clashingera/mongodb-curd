@@ -1,4 +1,4 @@
-import NewTopic from "../../componets/NewTopic";
+import NewTopic from "../componets/NewTopic";
 
 const AddTopic = () => {
     return (

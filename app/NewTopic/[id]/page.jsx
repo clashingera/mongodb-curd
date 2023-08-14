@@ -1,5 +1,5 @@
 
-import EditForm from "@/componets/EditForm";
+import EditForm from "@/app/componets/EditForm";
 // import { data } from "autoprefixer";
 
 const getTopic = async (topicId) => {

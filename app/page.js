@@ -1,8 +1,5 @@
 
-import Topic from "../componets/Topic";
-
-
-
+import Topic from "./componets/Topic";
 
 export default function Home() {
   return (
